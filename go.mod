@@ -1,4 +1,4 @@
-module github.com/Tarkeshwar-kumar/LeaveManagementSystem.git
+module github.com/Tarkeshwar-kumar/LeaveManagementSystem
 
 go 1.21.5
 

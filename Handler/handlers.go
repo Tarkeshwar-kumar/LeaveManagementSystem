@@ -1,4 +1,4 @@
-package handlers
+package handler
 
 func Login(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Content-Type", "text/html")
