@@ -1,17 +1,16 @@
 package main
 
 import (
-	"html/template"
 	"net/http"
-	"github.com/Tarkeshwar-kumar/LeaveManagementSystem/Handler/handler"
+	"github.com/Tarkeshwar-kumar/LeaveManagementSystem/handler"
+	"github.com/gorilla/mux"
 )
 
 func main() {
-	mux := http.NewServeMux()
- 	file := http.FileServer(http.Dir("./ui/"))
- 	mux.Handle("/", file)
-	mux.HandleFunc("/login", handlers.Login)
-	mux.HandleFunc("/my-leaves", handlers.LeaveRecords)
+	mux := mux.NewRouter()
+	mux.HandleFunc("/", handler.Login)
+	mux.HandleFunc("/apply-for-leave", handler.ApplyForLeave)
+	mux.HandleFunc("/my-leaves", handler.LeaveRecords)
 	server := &http.Server{
 		Addr: "0.0.0.0:8080",
 		Handler: mux,
